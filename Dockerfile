@@ -1,11 +1,11 @@
-FROM centos
+FROM fedora
 
 MAINTAINER [Alejandro Baez](https://twitter.com/a_baez)
 
-LUAROCKS_VERSION 2.2.1
+ENV LUAROCKS_VERSION 2.2.1
 
 # Dependencies
-RUN yum install -y lua git
+RUN yum install -y luajit lua git
 
 # Build Luarocks
 WORKDIR /tmp
