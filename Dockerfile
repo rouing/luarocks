@@ -22,4 +22,3 @@ RUN rm /tmp/luarocks -rf
 
 WORKDIR /
 
-
