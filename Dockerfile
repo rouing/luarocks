@@ -8,11 +8,10 @@ ENV LUAROCKS_VERSION 2.2.2
 RUN yum install -y lua lua-devel git make
 
 # Build Luarocks
-WORKDIR /tmp
-
-RUN git clone -b v$LUAROCKS_VERSION https://github.com/keplerproject/luarocks.git
+RUN git clone --branch v$LUAROCKS_VERSION https://github.com/keplerproject/luarocks.git /tmp/luarocks
 
 WORKDIR /tmp/luarocks
+
 RUN ./configure --lua-version=5.1 --prefix=/usr/local --with-lua=/usr
 
 RUN make build
