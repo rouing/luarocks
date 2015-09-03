@@ -7,7 +7,9 @@ ENV LUAROCKS_INSTALL luarocks-$LUAROCKS_VERSION
 ENV TMP_LOC /opt/luarocks
 
 # Dependencies
-RUN yum install -y lua lua-devel make tar unzip gcc-devel
+RUN yum install -y lua lua-devel make tar
+# Need for rocks extraction
+RUN yum install -y unzip gcc gcc-devel openssl-devel
 
 # Build Luarocks
 RUN curl -O http://keplerproject.github.io/luarocks/releases/luarocks-$LUAROCKS_VERSION.tar.gz
