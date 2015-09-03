@@ -3,14 +3,20 @@ FROM centos
 MAINTAINER [Alejandro Baez](https://twitter.com/a_baez)
 
 ENV LUAROCKS_VERSION 2.2.2
+ENV LUAROCKS_INSTALL luarocks-$LUAROCKS_VERSION
+ENV TMP_LOC /opt/luarocks
 
 # Dependencies
-RUN yum install -y lua lua-devel git make
+RUN yum install -y lua lua-devel make tar unzip gcc-devel
 
 # Build Luarocks
-RUN git clone --branch v$LUAROCKS_VERSION https://github.com/keplerproject/luarocks.git /tmp/luarocks
+RUN curl -O http://keplerproject.github.io/luarocks/releases/luarocks-$LUAROCKS_VERSION.tar.gz
 
-WORKDIR /tmp/luarocks
+RUN tar xvf $LUAROCKS_INSTALL.tar.gz  && \
+  rm $LUAROCKS_INSTALL.tar.gz && \
+  mv $LUAROCKS_INSTALL $TMP_LOC
+
+WORKDIR $TMP_LOC
 
 RUN ./configure --lua-version=5.1 --prefix=/usr/local --with-lua=/usr
 
@@ -18,7 +24,7 @@ RUN make build
 
 RUN make install
 
-RUN rm /tmp/luarocks -rf
-
 WORKDIR /
+
+RUN rm $TMP_LOC -rf
 
