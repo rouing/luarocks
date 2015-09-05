@@ -1,15 +1,10 @@
-FROM centos
+FROM abaez/lua
 
 MAINTAINER [Alejandro Baez](https://twitter.com/a_baez)
 
 ENV LUAROCKS_VERSION 2.2.2
 ENV LUAROCKS_INSTALL luarocks-$LUAROCKS_VERSION
 ENV TMP_LOC /opt/luarocks
-
-# Dependencies
-RUN yum install -y lua lua-devel make tar
-# Need for rocks extraction
-RUN yum install -y unzip gcc gcc-devel openssl-devel
 
 # Build Luarocks
 RUN curl -O http://keplerproject.github.io/luarocks/releases/luarocks-$LUAROCKS_VERSION.tar.gz
@@ -20,7 +15,10 @@ RUN tar xvf $LUAROCKS_INSTALL.tar.gz  && \
 
 WORKDIR $TMP_LOC
 
-RUN ./configure --lua-version=5.1 --prefix=/usr/local --with-lua=/usr
+RUN ./configure \
+  --lua-version=$LUA_MAJOR_VERSION \
+  --prefix=/usr/local \
+  --with-lua=/usr/local
 
 RUN make build
 
