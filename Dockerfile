@@ -1,15 +1,16 @@
 FROM abaez/lua
 
-MAINTAINER [Alejandro Baez](https://twitter.com/a_baez)
+LABEL maintainer "Alejandro Baez https://twitter.com/a_baez"
 
-ENV LUAROCKS_VERSION 2.3.0
+ENV LUAROCKS_VERSION 2.4.2
 ENV LUAROCKS_INSTALL luarocks-$LUAROCKS_VERSION
 ENV TMP_LOC /tmp/luarocks
 
 # Build Luarocks
-RUN curl -O http://keplerproject.github.io/luarocks/releases/$LUAROCKS_INSTALL.tar.gz
+RUN curl -OL \
+    https://luarocks.org/releases/${LUAROCKS_INSTALL}.tar.gz
 
-RUN tar xvzf $LUAROCKS_INSTALL.tar.gz && \
+RUN tar xzf $LUAROCKS_INSTALL.tar.gz && \
     mv $LUAROCKS_INSTALL $TMP_LOC && \
     rm $LUAROCKS_INSTALL.tar.gz
 
