@@ -11,4 +11,5 @@ Currently the container has two versions of lua, **5.1** and **5.3**. You can us
     * latest: uses lua-5.3 for luarocks.
     * lua5.1: uses lua-5.1 for luarocks.
 * luarock version on tags:
+    * 2.4.2
     * 2.3.0:
