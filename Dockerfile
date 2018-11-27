@@ -30,5 +30,3 @@ RUN make install
 WORKDIR /
 
 RUN rm $TMP_LOC -rf
-
-RUN luarocks install lua-cjson
