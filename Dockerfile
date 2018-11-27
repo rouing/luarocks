@@ -6,7 +6,7 @@ ENV LUAROCKS_VERSION 3.0.4
 ENV LUAROCKS_INSTALL luarocks-$LUAROCKS_VERSION
 ENV TMP_LOC /tmp/luarocks
 
-RUN apk add zip --no-cache
+RUN apk add zip gettext --no-cache
 
 # Build Luarocks
 RUN curl -OL \
