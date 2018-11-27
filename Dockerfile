@@ -31,3 +31,4 @@ WORKDIR /
 
 RUN rm $TMP_LOC -rf
 
+RUN luarocks installlua-cjson
