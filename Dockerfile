@@ -2,7 +2,7 @@ FROM docker.rouing.me/docker/lua:5.1
 
 MAINTAINER [William C Ardoin](https://git.rouing.me/)
 
-ENV LUAROCKS_VERSION 3.0.4
+ENV LUAROCKS_VERSION 2.4.4
 ENV LUAROCKS_INSTALL luarocks-$LUAROCKS_VERSION
 ENV TMP_LOC /tmp/luarocks
 
