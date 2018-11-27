@@ -6,6 +6,8 @@ ENV LUAROCKS_VERSION 3.0.4
 ENV LUAROCKS_INSTALL luarocks-$LUAROCKS_VERSION
 ENV TMP_LOC /tmp/luarocks
 
+RUN apk add zip --no-cache
+
 # Build Luarocks
 RUN curl -OL \
     https://luarocks.org/releases/${LUAROCKS_INSTALL}.tar.gz
