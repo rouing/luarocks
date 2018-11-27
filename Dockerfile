@@ -1,8 +1,8 @@
-FROM abaez/lua
+FROM docker.rouing.me/docker/lua:5.1
 
-LABEL maintainer "Alejandro Baez https://twitter.com/a_baez"
+MAINTAINER [William C Ardoin](https://git.rouing.me/)
 
-ENV LUAROCKS_VERSION 2.4.2
+ENV LUAROCKS_VERSION 3.0.4
 ENV LUAROCKS_INSTALL luarocks-$LUAROCKS_VERSION
 ENV TMP_LOC /tmp/luarocks
 
@@ -13,7 +13,6 @@ RUN curl -OL \
 RUN tar xzf $LUAROCKS_INSTALL.tar.gz && \
     mv $LUAROCKS_INSTALL $TMP_LOC && \
     rm $LUAROCKS_INSTALL.tar.gz
-
 
 WORKDIR $TMP_LOC
 
