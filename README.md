@@ -1,5 +1,5 @@
 # rouing/luarocks
-## Lua based container by [William Cody Ardoin](https://git.rouing.me/)
+## Lua based container by [William C Ardoin](https://git.rouing.me/)
 
 ### DESCRIPTION
 A small container for Lua with Luarocks preinstalled for ease of use. Since it's a base container, you should use to extend according to your needs. The container allows you to choose between two versions of lua for luarocks.
